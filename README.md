@@ -258,6 +258,22 @@ interface Vlan3
 ip routing
 ```
 
+**PC11**
+
+![PC11](images/result_cfg_PC11.jpg)
+
+**PC21**
+
+![PC21](images/result_cfg_PC21.jpg)
+
+**PC31**
+
+![PC31](images/result_cfg_PC31.jpg)
+
+**PC32**
+
+![PC32](images/result_cfg_PC32.jpg)
+
 # Заключение
 
 ## Проверка работы сденда и результаты работы
