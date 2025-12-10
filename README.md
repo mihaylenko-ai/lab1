@@ -115,5 +115,145 @@ Spine устройств, обеспечивающих связность ниж
 
 ## Настройка устройств
 
+В рамках учебной лабораторной среды все устройства были настроены соответствующим их ардесным пространствам
 
+Ниже приведены частичные настройки файлов конфигураций конкретных сетевых устройств
 
+#### Spine устройства
+
+**S1**
+```
+hostname S1
+!
+interface Ethernet1
+   description <leaf L1>
+   no switchport
+   ip address 10.1.1.1/30
+!
+interface Ethernet2
+   description <leaf L2>
+   no switchport
+   ip address 10.1.2.1/30
+!
+interface Ethernet3
+   description <leaf L3>
+   no switchport
+   ip address 10.1.3.1/30
+!
+interface Loopback0
+   ip address 172.16.1.1/32
+!
+ip routing
+```
+
+**S2**
+```
+hostname S2
+!
+interface Ethernet1
+   description <leaf L1>
+   no switchport
+   ip address 10.2.1.1/30
+!
+interface Ethernet2
+   description <leaf L2>
+   no switchport
+   ip address 10.2.2.1/30
+!
+interface Ethernet3
+   description <leaf L3>
+   no switchport
+   ip address 10.2.3.1/30
+!
+interface Loopback0
+   ip address 172.16.2.1/32
+!
+ip routing
+```
+
+#### Leaf устройства
+
+**L1**
+```
+hostname L1
+!
+interface Ethernet1
+   description <spine S1>
+   no switchport
+   ip address 10.1.1.2/30
+!
+interface Ethernet2
+   description <spine S2>
+   no switchport
+   ip address 10.2.1.2/30
+!
+interface Ethernet8
+   description <PC11>
+   no switchport
+   ip address 192.168.1.1/24
+!
+interface Loopback0
+   ip address 172.16.11.1/32
+!
+ip routing
+```
+
+**L2**
+```
+hostname L2
+!
+interface Ethernet1
+   description <spine S1>
+   no switchport
+   ip address 10.1.2.2/30
+!
+interface Ethernet2
+   description <spine S2>
+   no switchport
+   ip address 10.2.2.2/30
+!
+interface Ethernet8
+   description <PC21>
+   no switchport
+   ip address 192.168.2.1/24
+!
+interface Loopback0
+   ip address 172.16.12.1/24
+!
+ip routing
+```
+
+**L3**
+```
+hostname L3
+!
+vlan 3
+   name users
+!
+interface Ethernet1
+   description <spine S1>
+   no switchport
+   ip address 10.1.3.2/30
+!
+interface Ethernet2
+   description <spine S2>
+   no switchport
+   ip address 10.2.3.2/30
+!
+interface Ethernet7
+   description <PC31>
+   switchport access vlan 3
+!
+interface Ethernet8
+   description <PC32>
+   switchport access vlan 3
+!
+interface Loopback0
+   ip address 172.16.13.1/32
+!
+interface Vlan3
+   description <User`s VLAN>
+   ip address 192.168.3.1/24
+!
+ip routing
+```
