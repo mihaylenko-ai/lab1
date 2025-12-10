@@ -264,17 +264,22 @@ ip routing
 
 Стенд может считаться рабочим в случае получения ответов со всех Spine устройств от каждого из Leaf устройств. 
 
+S1 до L1,L2,L3
 ![S1](images/result_ping_S1.jpg)
 
+S2 до L1,L2,L3
 ![S2](images/result_ping_S2.jpg)
 
 А так же получения ответов со всех Leaf устройств от подключенных к нему конечных устройств.
 
-![L1](images/result_ping_L1)
+L1 до PC11
+![L1](images/result_ping_L1.jpg)
 
-![L2](images/result_ping_L2)
+L2 до PC21
+![L2](images/result_ping_L2.jpg)
 
-![L3](images/result_ping_L3)
+L3 до PC31,PC32
+![L3](images/result_ping_L3.jpg)
 
 Тест работы производился посредством отправики ICMP Echo запроса.
 
